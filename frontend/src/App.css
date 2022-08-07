@@ -3,17 +3,17 @@
 .App {
   min-height: 100vh;
   display: flex;
-  background-image: url("./background.png");
+  background: #1e1728;
   background-position: center;
   background-size: cover;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(136, 136, 136, 0.281);
+  background: rgba(0, 0, 0,0.2);
 }
 
 /* Handle on hover */

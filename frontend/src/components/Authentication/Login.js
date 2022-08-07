@@ -6,11 +6,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
+import { ChatState } from "../../Context/ChatProvider";
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const toast = useToast();
+  const {setUserLoad, userLoad} = ChatState()
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
@@ -55,11 +57,12 @@ const Login = () => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
+      setUserLoad(!userLoad)
       history.push("/chats");
     } catch (error) {
       toast({
         title: "Error Occured!",
-        description: error.response.data.message,
+        description: "errro occured",
         status: "error",
         duration: 5000,
         isClosable: true,
